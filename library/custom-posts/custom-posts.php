@@ -1,12 +1,11 @@
 <?php
 
 //All custom posts
-load_template( SP_BASE_DIR . 'library/custom-posts/cp-home-slider.php' );
 load_template( SP_BASE_DIR . 'library/custom-posts/cp-room.php' );
 load_template( SP_BASE_DIR . 'library/custom-posts/cp-facility.php' );
-load_template( SP_BASE_DIR . 'library/custom-posts/cp-testimonial.php' );
+//load_template( SP_BASE_DIR . 'library/custom-posts/cp-testimonial.php' );
 load_template( SP_BASE_DIR . 'library/custom-posts/cp-gallery.php' );
-load_template( SP_BASE_DIR . 'library/custom-posts/cp-slider.php' );
+//load_template( SP_BASE_DIR . 'library/custom-posts/cp-slider.php' );
 
 //Taxonomies
 //load_template( SP_BASE_DIR . 'library/custom-posts/taxonomy-testimonial.php' );

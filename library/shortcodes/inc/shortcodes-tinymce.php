@@ -10,12 +10,12 @@ function sp_shortcodes_register_mce_button( $buttons ) {
 	array_push( $buttons, 'btn' );
 	array_push( $buttons, 'horz_rule' );
 	array_push( $buttons, 'email_encoder' );
-	array_push( $buttons, 'slider' );
+	//array_push( $buttons, 'slider' );
 	array_push( $buttons, 'accordion' );
 	array_push( $buttons, 'toggle' );
 	array_push( $buttons, 'tab' );
 	array_push( $buttons, 'gallery' );
-	array_push( $buttons, 'testimonial' );
+	//array_push( $buttons, 'testimonial' );
 	array_push( $buttons, 'posts' );
 	array_push( $buttons, 'amenities' );
 
@@ -27,12 +27,12 @@ function sp_shortcodes_add_tinymce_plugin($plugin_array) {
 	$plugin_array['col'] 			= ED_JS_URL . 'ed-columns.js';
 	$plugin_array['horz_rule']		= ED_JS_URL . 'ed-hr.js';
 	$plugin_array['email_encoder']	= ED_JS_URL . 'ed-email-encoder.js';
-	$plugin_array['slider']			= ED_JS_URL . 'ed-slider.js';
+	//$plugin_array['slider']			= ED_JS_URL . 'ed-slider.js';
 	$plugin_array['accordion']		= ED_JS_URL . 'ed-accordion.js';
 	$plugin_array['toggle']			= ED_JS_URL . 'ed-toggle.js';
 	$plugin_array['tab']			= ED_JS_URL . 'ed-tab.js';
 	$plugin_array['gallery']		= ED_JS_URL . 'ed-gallery.js';
-	$plugin_array['testimonial']	= ED_JS_URL . 'ed-testimonial.js';
+	//$plugin_array['testimonial']	= ED_JS_URL . 'ed-testimonial.js';
 	$plugin_array['posts']			= ED_JS_URL . 'ed-posts.js';
 	$plugin_array['amenities']		= ED_JS_URL . 'ed-amenities.js';
 	$plugin_array['btn']			= ED_JS_URL . 'ed-button.js';
@@ -50,7 +50,7 @@ function sp_shortcodes_add_mce_button() {
  }
 add_action( 'admin_head', 'sp_shortcodes_add_mce_button' );  
 
-load_template( SC_INC_DIR . 'popup/ajax-slider-shortcode.php' );
+//load_template( SC_INC_DIR . 'popup/ajax-slider-shortcode.php' );
 load_template( SC_INC_DIR . 'popup/ajax-gallery-shortcode.php' );
 
 ?>
