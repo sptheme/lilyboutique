@@ -190,7 +190,7 @@ $page_template_contact = array(
 	)
 );
 
-function rw_maybe_include() {
+function sp_maybe_include() {
 	// Include in back-end only
 	if ( ! defined( 'WP_ADMIN' ) || ! WP_ADMIN ) {
 		return false;
@@ -228,7 +228,7 @@ function rw_maybe_include() {
 	ot_register_meta_box( $post_type_gallery );
 	ot_register_meta_box( $page_bg_slideshow );
 
-	$template_file = rw_maybe_include();
+	$template_file = sp_maybe_include();
 	if ( $template_file == 'template-contact.php' ) {
 	    ot_register_meta_box( $page_template_contact );
 	}

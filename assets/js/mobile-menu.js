@@ -8,7 +8,6 @@ var eventHover = 'mouseover mouseout';
 (function($){
   if ('ontouchstart' in document.documentElement) {
     $('html').addClass('touch');
-    $('body').addClass('touch-gesture');
     touchSupport = true;
     eventClick = 'touchon touchend';
     eventHover = 'touchstart touchend';
@@ -22,34 +21,38 @@ var eventHover = 'mouseover mouseout';
 jQuery(document).ready(function($) {
 
   // Hover plus icon sub-menu  
-  $('#nav-container a, .nav-child-container, .mobile-menu-trigger').bind( eventHover, function(event) {
+  $('.mobile-menu-trigger').bind( eventHover, function(event) {
     $(this).toggleClass('hover');    
   });
 
-  // multi-level menu 
-  $('.nav-child-container').bind( eventClick, function(event) {
+  /*--------------------------------------------------------------------------------------*/
+  /*  Primary navigation
+  /*--------------------------------------------------------------------------------------*/
+  $('.primary-nav li.menu-item-has-children a').click(function(event) {
     event.preventDefault();
     var $this = $(this);
-    var ul = $this.next('ul');
-    var ulChildrenHeight = ul.children().length * 46;
+      var ul = $this.next('ul');
+      var ulChildrenHeight = ul.children().length * 25;
 
-    if(!$this.hasClass('active')){
-      $this.toggleClass('active');
-      ul.toggleClass('active');
-      ul.height(ulChildrenHeight + 'px');
-      if ( $this.next('ul').children().children('ul').hasClass('active') ) {
-        $this.next('ul').height( $this.next('ul').children().children('ul').height() + (ul.children().length * 46) );
+      if(!$this.parent().hasClass('active')){
+        $this.parent().toggleClass('active');
+        ul.toggleClass('active');
+        ul.height(ulChildrenHeight + 'px');
+      } else {
+        $this.parent().toggleClass('active');
+        ul.toggleClass('active');
+        ul.height(0);
       }
-      if ( $this.parent().parent('ul').hasClass('active')) {
-        $this.parent().parent('ul').height( $this.parent().parent('ul').height() + (ul.children().length * 46) );
-      } 
-    }else{
-      $this.toggleClass('active');
-      ul.toggleClass('active');
-      ul.height(0);
-      if ( $this.parent().parent('ul').hasClass('active')) {
-        $this.parent().parent('ul').height( $this.parent().parent('ul.active').children().length * 46 );
-      }
+  });
+
+  /* Auto expend for current menu items */ 
+  var $navItems = $('.primary-nav ul li');
+
+  $navItems.each(function(index){
+    if ($(this).hasClass('current-menu-item')) {
+      $parentUl = $(this).parent();
+      $parentUl.height($parentUl.children('li').length * 25 + "px");
+      $parentUl.parent().addClass('active');
     }
   });
 
@@ -57,69 +60,20 @@ jQuery(document).ready(function($) {
   
   var opened = false;
   $('#menu-trigger').bind(eventClick, function(event) {
-    $('#content-container').toggleClass('active');
-    $('#sidemenu').toggleClass('active');
     if(opened){
       opened = false;
+      $(this).removeClass('active');
       setTimeout(function() {
+        $('#side-logo').removeClass('active');
         $('#sidemenu-container').removeClass('active');
       }, 500);
     } else {
-      $('#sidemenu-container').addClass('active');
-      opened = true;
-    }
-  });
-    
-  $('.mobile-nav a').bind('click', function(event) {
-    event.preventDefault();
-    var path = $(this).attr('href');
-    $('#content-container').toggleClass('active');
-    $('#sidemenu').toggleClass('active');
-    setTimeout(function() {
-      window.location = path;
-    }, 500);
-  });
-
-  // Swipe menu support 
-  /*$('.touch-gesture #content').hammer().on('swiperight', function(event) {
-    $('#content-container').addClass('active');
-    $('#sidemenu').addClass('active');
-    if(opened){
-      opened = false;
+      $(this).addClass('active');
       setTimeout(function() {
-        $('#sidemenu-container').removeClass('active');
+        $('#side-logo').addClass('active');
+        $('#sidemenu-container').addClass('active');
+        opened = true;
       }, 500);
-    } else {
-      $('#sidemenu-container').addClass('active');
-      opened = true;
-    }
-  });
-  
-  $('.touch-gesture #content').hammer().on('swipeleft', function(event) {
-    $('#content-container').removeClass('active');
-    $('#sidemenu').removeClass('active');
-    if(opened){
-      opened = false;
-      setTimeout(function() {
-        $('#sidemenu-container').removeClass('active');
-      }, 500);
-    } else {
-      $('#sidemenu-container').addClass('active');
-      opened = true;
-    }
-  });*/
-
-  // Check if the child menu has an active item. If yes, then it will expand the menu by default. 
-  var $navItems = $('.mobile-nav ul li');
-
-  $navItems.each(function(index){
-    if ($(this).hasClass('current-menu-item')) {
-      $parentUl = $(this).parent();
-      $parentUl.height($parentUl.children('li').length * 46 + "px");
-      $parentUl.prev().addClass('active');
-      $parentUl.addClass('active');
-      $anchor = $parentUl.prev();
-      $anchor.children('.nav-child-container').addClass('active');
     }
   });
 

@@ -53,31 +53,31 @@ if( !function_exists('sp_frontend_scripts_styles') )
 	function sp_frontend_scripts_styles() {
 		
 		//Register CSS style
-		wp_enqueue_style('gfont-opensans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700', false, SP_SCRIPTS_VERSION);
-		wp_enqueue_style('theme-info', SP_BASE_URL . 'style.css', false, SP_SCRIPTS_VERSION);
-		wp_enqueue_style('fontello', SP_ASSETS_THEME . 'css/fontello.css', false, SP_SCRIPTS_VERSION);
-		wp_enqueue_style('normalize', SP_ASSETS_THEME . 'css/normalize.css', false, SP_SCRIPTS_VERSION);
-		wp_enqueue_style('base', SP_ASSETS_THEME . 'css/base.css', false, SP_SCRIPTS_VERSION);
-		wp_enqueue_style('flexslider', SP_ASSETS_THEME . 'css/flexslider.css', false, SP_SCRIPTS_VERSION);
-		wp_enqueue_style('flexslider-custom', SP_ASSETS_THEME . 'css/flexslider-custom.css', false, SP_SCRIPTS_VERSION);
-		wp_enqueue_style('magnific-popup', SP_ASSETS_THEME . 'css/magnific-popup.css', false, SP_SCRIPTS_VERSION);
-		wp_enqueue_style('layout', SP_ASSETS_THEME . 'css/layout.css', false, SP_SCRIPTS_VERSION);
+		wp_enqueue_style('gfont-opensans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,400,600', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('theme-info', SP_BASE_URL . 'style.css', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('fontello', SP_ASSETS_THEME . 'css/fontello.css', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('normalize', SP_ASSETS_THEME . 'css/normalize.css', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('base', SP_ASSETS_THEME . 'css/base.css', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('flexslider', SP_ASSETS_THEME . 'css/flexslider.css', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('flexslider-custom', SP_ASSETS_THEME . 'css/flexslider-custom.css', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('magnific-popup', SP_ASSETS_THEME . 'css/magnific-popup.css', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('magnific-custom', SP_ASSETS_THEME . 'css/magnific-custom.css', array() , SP_SCRIPTS_VERSION);
+		wp_enqueue_style('layout', SP_ASSETS_THEME . 'css/layout.css', array() , SP_SCRIPTS_VERSION);
 		
 		//Register scripts
 		wp_enqueue_script('modernizr', SP_ASSETS_THEME . 'js/modernizr.js', array('jquery'), SP_SCRIPTS_VERSION, false);
 		wp_enqueue_script('flexslider', SP_ASSETS_THEME . 'js/jquery.flexslider.js', array('jquery'), SP_SCRIPTS_VERSION, true);
 		wp_enqueue_script('fitvideos', SP_ASSETS_THEME . 'js/jquery.fitvids.js', array('jquery'), SP_SCRIPTS_VERSION, true);
-		wp_enqueue_script('magnific-popup', SP_ASSETS_THEME . 'js/jquery.magnific-popup.min.js', array('jquery'), SP_SCRIPTS_VERSION, false);
+		wp_enqueue_script('magnific-popup', SP_ASSETS_THEME . 'js/jquery.magnific-popup.min.js', array('jquery'), SP_SCRIPTS_VERSION, true);
 		wp_enqueue_script('backstretch', SP_ASSETS_THEME . 'js/jquery.backstretch.min.js', array(), SP_SCRIPTS_VERSION, true);
+		wp_enqueue_script('mobile-menu', SP_ASSETS_THEME . 'js/mobile-menu.js', array('jquery'), SP_SCRIPTS_VERSION, true);
 		wp_enqueue_script('custom', SP_ASSETS_THEME . 'js/custom.js', array('jquery'), SP_SCRIPTS_VERSION, true);
 
 		if ( is_singular() ) { wp_enqueue_script('sharrre', SP_ASSETS_THEME . 'js/jquery.sharrre.min.js', array('jquery'), SP_SCRIPTS_VERSION, true); }
 		if ( is_singular() && comments_open() ) { wp_enqueue_script( 'comment-reply' ); }
 
 		if ( ot_get_option('responsive') != 'off' ) {
-			wp_enqueue_style('menu-mobile', SP_ASSETS_THEME . 'css/menu-mobile.css', false, SP_SCRIPTS_VERSION);
 			wp_enqueue_style('responsive', SP_ASSETS_THEME . 'css/responsive.css', false, SP_SCRIPTS_VERSION);
-			wp_enqueue_script('mobile-menu', SP_ASSETS_THEME . 'js/mobile-menu.js', array('jquery'), SP_SCRIPTS_VERSION, true);
 		}
 
 		wp_localize_script(
@@ -123,45 +123,34 @@ if ( !function_exists('sp_print_custom_css_script') ){
 	<?php if ( is_page() || is_singular() ) : ?>
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
-	    $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function(){
-	        if ($(this).parents('.gallery').length == 0) {
-	            $(this).magnificPopup({
-	                type:'image',
-	                mainClass: 'mfp-with-zoom', // this class is for CSS animation below
-
-					zoom: {
-						enabled: true, // By default it's false, so don't forget to enable it
-
-						duration: 300, // duration of the effect, in milliseconds
-						easing: 'ease-in-out', // CSS transition easing function 
-
-						// The "opener" function should return the element from which popup will be zoomed in
-						// and to which popup will be scaled down
-						// By defailt it looks for an image tag:
-						opener: function(openerElement) {
-						  // openerElement is the element on which popup was initialized, in this case its <a> tag
-						  // you don't need to add "opener" option if this code matches your needs, it's defailt one.
-						  return openerElement.is('img') ? openerElement : openerElement.find('img');
-						}
-					},
-	                closeOnContentClick: true
-	                });
-	            }
-	        });
-	    	
-	    	$('.entry-content .gallery').each(function() {
+		    $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function(){
+	        	if ($(this).parents('.gallery').length == 0) {
+		            $(this).magnificPopup({
+		               type: 'image',
+		               removalDelay: 500,
+		               mainClass: 'mfp-fade'
+		            });
+		        }
+		    });
+		    $('.entry-content .gallery').each(function() {
 		        $(this).magnificPopup({
 		            delegate: 'a',
 		            type: 'image',
-		            gallery: {enabled: true}
-		            });
-	        });
+		            removalDelay: 300,
+		            mainClass: 'mfp-fade',
+		            gallery: {
+		            	enabled: true,
+		            	navigateByImgClick: true
+		            }
+		        });
+		    });
 	    });
 
 	</script>
 	<?php endif; ?>
 
 	<?php
+	if ( !is_page_template( 'template-contact.php' ) ) {
 		$gallery = explode( ',', get_post_meta( get_the_ID(), 'sp_gallery', true ) );
 		$slide_background = '';
 		if ( $gallery[0] != '' ) :
@@ -180,9 +169,10 @@ if ( !function_exists('sp_print_custom_css_script') ){
 		jQuery(document).ready(function($) {
 		    $.backstretch([
 			     <?php echo $slide_background; ?>
-			  ], {duration: 3000, fade: 750});
+			  ], {fade: 1400, duration: 4000});
 		});    
 	</script>
+	<?php } ?>
 <?php		
 	}
 
@@ -272,7 +262,7 @@ if( !function_exists('sp_main_navigation')) {
 			wp_nav_menu( array(
 				'container'      => false,
 				'menu_id'	 	 => 'menu-primary',
-				'menu_class'	 => 'primary-nav',
+				'menu_class'	 => 'primary-nav mobile-nav',
 				'theme_location' => 'primary',
 				'fallback_cb' 	 => 'sp_main_nav_fallback'
 				) );
@@ -473,7 +463,9 @@ function sp_head_meta() { ?>
 	
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <?php if ( ot_get_option('responsive') != 'off' ) { ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php } ?>
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 
 	<!-- Add to homescreen for Chrome on Android -->
