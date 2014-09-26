@@ -61,8 +61,8 @@ $post_options = array(
 /* ---------------------------------------------------------------------- */
 $post_type_gallery = array(
 	'id'          => 'gallery-setting',
-	'title'       => 'Upload photos',
-	'desc'        => 'These settings enable you to upload photos.',
+	'title'       => 'Upload Photos',
+	'desc'        => 'These settings enable you to upload photos and present all photos as slideshow.',
 	'pages'       => array( 'gallery', 'facility', 'room' ),
 	'context'     => 'normal',
 	'priority'    => 'high',
@@ -149,13 +149,13 @@ $post_format_gallery = array(
 );
 
 /* ---------------------------------------------------------------------- */
-/*	Metabox for Home template
+/*	Metabox for Page and Post Background
 /* ---------------------------------------------------------------------- */
-$page_template_home = array(
+$page_bg_slideshow = array(
 	'id'          => 'slide-settings',
-	'title'       => 'Slideshow',
+	'title'       => 'Background Slideshow',
 	'desc'        => '',
-	'pages'       => array( 'page' ),
+	'pages'       => array( 'page', 'post' ),
 	'context'     => 'normal',
 	'priority'    => 'high',
 	'fields'      => array(
@@ -225,14 +225,10 @@ function rw_maybe_include() {
 	ot_register_meta_box( $post_format_audio );
 	ot_register_meta_box( $post_format_gallery );
 	ot_register_meta_box( $post_format_video );
-	// ot_register_meta_box( $post_type_testimonial );
-	// ot_register_meta_box( $post_type_slider );
 	ot_register_meta_box( $post_type_gallery );
+	ot_register_meta_box( $page_bg_slideshow );
 
 	$template_file = rw_maybe_include();
-	if ( $template_file == 'template-home.php' ) {
-	    ot_register_meta_box( $page_template_home );
-	}
 	if ( $template_file == 'template-contact.php' ) {
 	    ot_register_meta_box( $page_template_contact );
 	}

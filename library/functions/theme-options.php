@@ -48,12 +48,8 @@ function custom_theme_options() {
 			'title'		=> 'General'
 		),
 		array(
-			'id'		=> 'header',
-			'title'		=> 'Header'
-		),
-		array(
-			'id'		=> 'footer',
-			'title'		=> 'Footer'
+			'id'		=> 'pages',
+			'title'		=> 'Pages'
 		),
 		array(
 			'id'		=> 'layout',
@@ -89,7 +85,7 @@ function custom_theme_options() {
 			'desc'		=> 'Upload your custom logo image. Set logo max-height in styling options.',
 			'std'		=> SP_ASSETS_THEME . 'images/logo.png',
 			'type'		=> 'upload',
-			'section'	=> 'header'
+			'section'	=> 'general'
 		),
 		// Header: Favicon
 		array(
@@ -98,7 +94,7 @@ function custom_theme_options() {
 			'desc'		=> 'Upload a 128px x 128px Png image',
 			'std'		=> SP_ASSETS_THEME . 'images/touch/icon-128x128.png',
 			'type'		=> 'upload',
-			'section'	=> 'header'
+			'section'	=> 'general'
 		),
 		array(
 			'id'		=> 'custom-ios-title',
@@ -106,7 +102,7 @@ function custom_theme_options() {
 			'desc'		=> 'Enter a custom title for your site for when it is added as an iOS bookmark.',
 			'std'		=> '',
 			'type'		=> 'text',
-			'section'	=> 'header'
+			'section'	=> 'general'
 		),
 		array(
 			'id'		=> 'custom-ios-icon152',
@@ -114,7 +110,7 @@ function custom_theme_options() {
 			'desc'		=> 'Upload a 152px x 152px Png image',
 			'std'		=> get_template_directory_uri() . '/apple-touch-icon-precomposed.png',
 			'type'		=> 'upload',
-			'section'	=> 'header'
+			'section'	=> 'general'
 		),
 		array(
 			'id'		=> 'custom-win8-tile-icon144',
@@ -122,7 +118,7 @@ function custom_theme_options() {
 			'desc'		=> 'Upload a 144px x 144px Png image',
 			'std'		=> SP_ASSETS_THEME . 'images/touch/ms-touch-icon-144x144-precomposed.png',
 			'type'		=> 'upload',
-			'section'	=> 'header'
+			'section'	=> 'general'
 		),
 
 		// Footer: Copyright
@@ -132,25 +128,15 @@ function custom_theme_options() {
 			'desc'		=> 'Replace the footer copyright text',
 			'std'		=> 'WP Theme Testing © 2014. All Rights Reserved.',
 			'type'		=> 'text',
-			'section'	=> 'footer'
+			'section'	=> 'general'
 		),
-		// Footer: Credit
+		// Page: Background
 		array(
-			'id'		=> 'credit',
-			'label'		=> 'Footer Credit',
-			'desc'		=> 'Footer credit text',
-			'std'		=> 'off',
-			'type'		=> 'on-off',
-			'section'	=> 'footer'
-		),
-		array(
-			'id'		=> 'credit-text',
-			'label'		=> 'Credit by',
-			'desc'		=> 'Replace the credit text',
-			'std'		=> 'Powered by <a rel="nofollow" href="http://wordpress.org">WordPress</a>. Theme by <a rel="nofollow" href="http://www.novacambodia.com">Nova Cambodia</a>.',
-			'type'		=> 'text',
-			'section'	=> 'footer',
-			'condition' => 'credit:is(on)'
+			'id'		=> 'page-bg-slideshow',
+			'label'		=> 'Background pages',
+			'desc'		=> 'Upload background images, max 5. and use min size 1024px by 768px',
+			'type'		=> 'gallery',
+			'section'	=> 'pages'
 		),
 		// Layout : Global
 		array(

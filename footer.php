@@ -9,10 +9,6 @@
         </div><!--/#copyright-->
     </footer><!-- #footer -->
 
-    <?php if ( ot_get_option( 'credit' ) != 'off' ): ?>
-    <p class="credit"><?php echo ot_get_option( 'credit-text' ); ?></p><!--/#credit-->
-    <?php endif; ?><!--/#credit-->
-
     </div> <!-- #content-container -->
 </div> <!-- #wrapper -->
 

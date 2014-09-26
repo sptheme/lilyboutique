@@ -68,6 +68,7 @@ if( !function_exists('sp_frontend_scripts_styles') )
 		wp_enqueue_script('flexslider', SP_ASSETS_THEME . 'js/jquery.flexslider.js', array('jquery'), SP_SCRIPTS_VERSION, true);
 		wp_enqueue_script('fitvideos', SP_ASSETS_THEME . 'js/jquery.fitvids.js', array('jquery'), SP_SCRIPTS_VERSION, true);
 		wp_enqueue_script('magnific-popup', SP_ASSETS_THEME . 'js/jquery.magnific-popup.min.js', array('jquery'), SP_SCRIPTS_VERSION, false);
+		wp_enqueue_script('backstretch', SP_ASSETS_THEME . 'js/jquery.backstretch.min.js', array(), SP_SCRIPTS_VERSION, true);
 		wp_enqueue_script('custom', SP_ASSETS_THEME . 'js/custom.js', array('jquery'), SP_SCRIPTS_VERSION, true);
 
 		if ( is_singular() ) { wp_enqueue_script('sharrre', SP_ASSETS_THEME . 'js/jquery.sharrre.min.js', array('jquery'), SP_SCRIPTS_VERSION, true); }
@@ -159,6 +160,29 @@ if ( !function_exists('sp_print_custom_css_script') ){
 
 	</script>
 	<?php endif; ?>
+
+	<?php
+		$gallery = explode( ',', get_post_meta( get_the_ID(), 'sp_gallery', true ) );
+		$slide_background = '';
+		if ( $gallery[0] != '' ) :
+			foreach ( $gallery as $image ) :
+				$slide_background .= '\'' . wp_get_attachment_url($image, 'large') . '\',';
+			endforeach; 
+		else :
+			$default_gallery = explode( ',', ot_get_option('page-bg-slideshow') );
+			foreach ( $default_gallery as $image ) :
+				$slide_background .= '\'' . wp_get_attachment_url($image, 'large') . '\',';
+			endforeach; 
+		endif;	
+		$slide_background = substr($slide_background, 0, -1);
+	?>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+		    $.backstretch([
+			     <?php echo $slide_background; ?>
+			  ], {duration: 3000, fade: 750});
+		});    
+	</script>
 <?php		
 	}
 
