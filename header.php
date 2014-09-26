@@ -17,27 +17,13 @@
 
 <body <?php body_class(); ?>>
 <div id="wrapper">
-<?php if ( ot_get_option('responsive') != 'off' ) : ?>
-	<aside id="sidemenu-container">
-        <div id="sidemenu">
-        <nav class="menu-mobile-container">
-        <?php echo sp_mobile_navigation(); ?>
-        </nav>
-        </div>            	
-    </aside>
-<?php endif; ?>    
-    
     <div id="content-container">
         <header id="header" class="clearfix">
         <div class="container clearfix">
             
             <div id="menu-trigger" class="mobile-menu-trigger left icon-menu"></div>
 
-            <nav id="primary-menu-left-container" class="one-third">
-                <?php echo sp_main_left_navigation(); ?>
-            </nav><!-- .primary-nav .wrap -->
-
-            <div class="brand one-third" role="banner">
+            <div class="brand" role="banner">
                 <?php if( !is_singular() ) echo '<h1>'; else echo '<h2>'; ?>
                 
                 <a  href="<?php echo home_url() ?>/"  title="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>">
@@ -51,8 +37,8 @@
                 <?php if( !is_singular() ) echo '</h1>'; else echo '</h2>'; ?>
             </div><!-- end .brand -->
 
-            <nav id="primary-menu-right-container" class="one-third last">
-                <?php echo sp_main_right_navigation(); ?>
+            <nav id="primary-menu-container">
+                <?php echo sp_main_navigation(); ?>
             </nav><!-- .primary-nav .wrap -->
             
 		</div><!-- end .container .clearfix -->

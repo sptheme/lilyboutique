@@ -25,7 +25,7 @@ if( !function_exists('sp_theme_setup') )
 		add_theme_support( 'automatic-feed-links' );
 
 		// Add post formats
-		add_theme_support( 'post-formats', array( 'audio', 'gallery', 'image', 'video' ) );
+		add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' ) );
 	
 		// Add suport for post thumbnails and set default sizes
 		add_theme_support( 'post-thumbnails' );
@@ -34,10 +34,7 @@ if( !function_exists('sp_theme_setup') )
 
 		// Add navigation menus
 		register_nav_menus( array(
-			'primary_left'	=> __( 'Main Left Navigation', SP_TEXT_DOMAIN ),
-			'primary_right'	=> __( 'Main Right Navigation', SP_TEXT_DOMAIN ),
-			'footer'  		=> __( 'Footer Navigation', SP_TEXT_DOMAIN ),
-			'mobile'		=> __( 'Mobile Navigation', SP_TEXT_DOMAIN )
+			'primary'	=> __( 'Main Navigation', SP_TEXT_DOMAIN )
 		) );
 		
 	}
@@ -195,8 +192,8 @@ if ( ! function_exists( 'sp_excerpt_length' ) ) {
 
 function sp_gallery_atts( $out, $pairs, $atts ) {
 	$atts = shortcode_atts( array(
-	'columns' => '2',
-	'size' => 'post-gallery',
+	'columns' => '3',
+	'size' => 'medium',
 	), $atts );
 	 
 	$out['columns'] = $atts['columns'];
@@ -238,141 +235,34 @@ if ( !function_exists('sp_browser_body_class') ) {
 }
 
 /* ---------------------------------------------------------------------- */
-/*	Show Mobile, Main and Footer navigation
+/*	Show Main navigation
 /* ---------------------------------------------------------------------- */
 
-/* Mobile navigation */ 
-if( !function_exists('sp_mobile_navigation')) {
+/* Main Navigation */
+if( !function_exists('sp_main_navigation')) {
 
-	function sp_mobile_navigation() {
-		
-		// set default main menu if wp_nav_menu not active
-		if ( function_exists ( 'wp_nav_menu' ) ):
-			$menu = wp_nav_menu( array(
-					'container'      => false,
-					'menu_id'		 => 'menu-mobile',
-					'menu_class'	 => 'mobile-nav',
-					'theme_location' => 'mobile',
-					'fallback_cb' 	 => 'sp_mobile_nav_fallback',
-					'echo'           => false,
-					) );
-			/* Adding "+" buttons for dropdown menus */
-			$search = '<ul class="sub-menu">';
-			$replace = '<span class="nav-child-container"><span class="nav-child-trigger">+</span></span>
-						<ul class="sub-menu" style="height: 0;">';
-			/*if ( wp_is_mobile() )						
-				return str_replace($search, $replace, $menu);
-			else
-				return $menu;*/
-			return str_replace($search, $replace, $menu);		
-		else:
-			sp_mobile_nav_fallback();	
-		endif;
-	}
-}
-
-if (!function_exists('sp_mobile_nav_fallback')) {
-	
-	function sp_mobile_nav_fallback() {
-    	
-		$menu_html = '<ul id="menu-mobile" class="mobile-nav">';
-		$menu_html .= '<li><a href="'.admin_url('nav-menus.php').'">'.esc_html__('Add Mobile menu', SP_TEXT_DOMAIN).'</a></li>';
-		$menu_html .= '</ul>';
-		echo $menu_html;
-		
-	}
-	
-}
-
-/* Main Left Navigation */
-if( !function_exists('sp_main_left_navigation')) {
-
-	function sp_main_left_navigation() {
+	function sp_main_navigation() {
 		
 		// set default main menu if wp_nav_menu not active
 		if ( function_exists ( 'wp_nav_menu' ) )
 			wp_nav_menu( array(
 				'container'      => false,
-				'menu_id'	 	 => 'menu-primary-left',
+				'menu_id'	 	 => 'menu-primary',
 				'menu_class'	 => 'primary-nav',
-				'theme_location' => 'primary_left',
-				'fallback_cb' 	 => 'sp_main_left_nav_fallback'
+				'theme_location' => 'primary',
+				'fallback_cb' 	 => 'sp_main_nav_fallback'
 				) );
 		else
-			sp_main_left_nav_fallback();	
+			sp_main_nav_fallback();	
 	}
 }
 
-if (!function_exists('sp_main_left_nav_fallback')) {
+if (!function_exists('sp_main_nav_fallback')) {
 	
-	function sp_main_left_nav_fallback() {
+	function sp_main_nav_fallback() {
     	
 		$menu_html = '<ul class="primary-nav">';
 		$menu_html .= '<li><a href="'.admin_url('nav-menus.php').'">'.esc_html__('Add Main menu', SP_TEXT_DOMAIN).'</a></li>';
-		$menu_html .= '</ul>';
-		echo $menu_html;
-		
-	}
-	
-}
-
-/* Main Right Navigation */
-if( !function_exists('sp_main_right_navigation')) {
-
-	function sp_main_right_navigation() {
-		
-		// set default main menu if wp_nav_menu not active
-		if ( function_exists ( 'wp_nav_menu' ) )
-			wp_nav_menu( array(
-				'container'      => false,
-				'menu_id'	 	 => 'menu-primary-right',
-				'menu_class'	 => 'primary-nav',
-				'theme_location' => 'primary_right',
-				'fallback_cb' 	 => 'sp_main_right_nav_fallback'
-				) );
-		else
-			sp_main_right_nav_fallback();	
-	}
-}
-
-if (!function_exists('sp_main_right_nav_fallback')) {
-	
-	function sp_main_right_nav_fallback() {
-    	
-		$menu_html = '<ul class="primary-nav">';
-		$menu_html .= '<li><a href="'.admin_url('nav-menus.php').'">'.esc_html__('Add Main menu', SP_TEXT_DOMAIN).'</a></li>';
-		$menu_html .= '</ul>';
-		echo $menu_html;
-		
-	}
-	
-}
-
-/* Footer navigation */
-if( !function_exists('sp_footer_navigation')) {
-
-	function sp_footer_navigation() {
-		
-		// set default footer menu if wp_nav_menu not active
-		if ( function_exists ( 'wp_nav_menu' ) )
-			wp_nav_menu( array(
-				'container'      => false,
-				'menu_id'		 => 'menu-footer',
-				'menu_class'	 => 'footer-nav',
-				'theme_location' => 'footer',
-				'fallback_cb' => 'sp_footer_nav_fallback'
-				) );
-		else
-			sp_footer_nav_fallback();	
-	}
-}
-
-if (!function_exists('sp_footer_nav_fallback')) {
-	
-	function sp_footer_nav_fallback() {
-    	
-		$menu_html = '<ul class="footer-nav">';
-		$menu_html .= '<li><a href="'.admin_url('nav-menus.php').'">'.esc_html__('Add footer menu', SP_TEXT_DOMAIN).'</a></li>';
 		$menu_html .= '</ul>';
 		echo $menu_html;
 		
