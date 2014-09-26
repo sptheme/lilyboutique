@@ -57,59 +57,13 @@ $post_options = array(
 );
 
 /* ---------------------------------------------------------------------- */
-/*	Testimonial post type
-/* ---------------------------------------------------------------------- */
-$post_type_testimonial = array(
-	'id'          => 'testimonial-setting',
-	'title'       => 'Testimonial meta',
-	'desc'        => '',
-	'pages'       => array( 'testimonial' ),
-	'context'     => 'normal',
-	'priority'    => 'high',
-	'fields'      => array(
-		array(
-			'label'		=> 'Nationality',
-			'id'		=> $prefix . 'testimonial_cite',
-			'type'		=> 'text',
-			'desc'		=> 'Enter the country name of the testimonial.'
-		),
-		array(
-			'label'		=> 'Testimonial Cite Subtext',
-			'id'		=> $prefix . 'testimonial_cite_subtext',
-			'type'		=> 'text',
-			'desc'		=> 'Enter living action of this guest (optional).'
-		)
-	)
-);
-
-/* ---------------------------------------------------------------------- */
-/*	Slider post type
-/* ---------------------------------------------------------------------- */
-$post_type_slider = array(
-	'id'          => 'gallery-setting',
-	'title'       => 'Upload photos',
-	'desc'        => 'These settings enable you to upload photos.',
-	'pages'       => array( 'slider', 'facility', 'room' ),
-	'context'     => 'normal',
-	'priority'    => 'high',
-	'fields'      => array(
-		array(
-			'label'		=> 'Upload photo',
-			'id'		=> $prefix . 'sliders',
-			'type'		=> 'gallery',
-			'desc'		=> 'Upload photos'
-		)
-	)
-);
-
-/* ---------------------------------------------------------------------- */
 /*	Gallery post type
 /* ---------------------------------------------------------------------- */
 $post_type_gallery = array(
 	'id'          => 'gallery-setting',
 	'title'       => 'Upload photos',
 	'desc'        => 'These settings enable you to upload photos.',
-	'pages'       => array( 'gallery' ),
+	'pages'       => array( 'gallery', 'facility', 'room' ),
 	'context'     => 'normal',
 	'priority'    => 'high',
 	'fields'      => array(
@@ -267,7 +221,7 @@ function rw_maybe_include() {
 
 /*  Register meta boxes
 /* ------------------------------------ */
-	ot_register_meta_box( $post_options_options );
+	ot_register_meta_box( $post_options );
 	ot_register_meta_box( $post_format_audio );
 	ot_register_meta_box( $post_format_gallery );
 	ot_register_meta_box( $post_format_video );

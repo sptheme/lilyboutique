@@ -68,9 +68,6 @@ if ( ! function_exists( 'sp_layout_class' ) ) {
 			// Else check for page-global / single-global
 			elseif ( is_single() && ( ot_get_option('layout-single') !='inherit' ) ) $layout = ot_get_option('layout-single',''.$default.'');
 			elseif ( is_page() && ( ot_get_option('layout-page') !='inherit' ) ) $layout = ot_get_option('layout-page',''.$default.'');
-			// Else check for custom post
-			elseif ( is_singular('team') && ( ot_get_option('layout-team') !='inherit' ) ) $layout = ot_get_option('layout-team',''.$default.'');
-			elseif ( is_singular('gallery') && ( ot_get_option('layout-gallery') !='inherit' ) ) $layout = ot_get_option('layout-gallery',''.$default.'');
 			// Else get global option
 			else $layout = ot_get_option('layout-global',''.$default.'');
 		}
