@@ -41,7 +41,7 @@
 		form.find( '#sc-button-submit' ).click( function() {
 			var btn_name = table.find( '#sc-button-name' ).val(),
 			btn_url = table.find( '#sc-button-url' ).val(),
-			shortcode = '[button btn_url="' + btn_url + '" btn_name="' + btn_name +']';
+			shortcode = '[button btn_url="' + btn_url + '" btn_name="' + btn_name +'""]';
 
 			tinyMCE.activeEditor.execCommand( 'mceInsertContent', 0, shortcode );
 			tb_remove();

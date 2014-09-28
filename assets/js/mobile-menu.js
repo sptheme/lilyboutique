@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
   /*--------------------------------------------------------------------------------------*/
   /*  Primary navigation
   /*--------------------------------------------------------------------------------------*/
-  $('.primary-nav li.menu-item-has-children a').click(function(event) {
+  $('.primary-nav li.menu-item-has-children > a').click(function(event) {
     event.preventDefault();
     var $this = $(this);
       var ul = $this.next('ul');

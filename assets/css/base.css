@@ -19,14 +19,14 @@ html .mceContentBody {
 body {
 	line-height: 1.5;
 	font-family: Arial, sans-serif;
-	color: #4a4a4a;
-	background: #ffffff;
+	color: #333333;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin: 0;
   color: #000000;
+  text-transform: uppercase;
 }
 h1 {
   font-size:32px;
@@ -308,6 +308,7 @@ img[class*="attachment-"] {
 
 img[class*="wp-image-"], 
 img.wp-post-image{
+	background: #ffffff;
 	border: 2px solid #f2e0b8;
 	padding: 5px;
 	-webkit-box-sizing: border-box;

@@ -10,7 +10,7 @@ get_header(); ?>
 
 			<?php echo sp_post_type_sub_nav('facility'); ?>
 
-			<?php echo sp_sliders( 1, $post->ID, 'post-slider' ); ?>
+			<?php echo sp_sliders( 1, $post->ID, 'large' ); ?>
 			
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">

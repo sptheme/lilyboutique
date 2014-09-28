@@ -307,11 +307,12 @@ function sp_posts_sc( $atts, $content = null ){
 
 	extract( shortcode_atts( array(
 		'post_type' => null,
+		'post_cols' => null,
 		'numberposts' => null,
 		'excerpt'	=> true
 	), $atts ) );
 
-	return sp_post_type_highlight( $post_type, $numberposts, $excerpt );
+	return sp_post_type_highlight( $post_type, $post_cols, $numberposts, $excerpt );
 
 }
 

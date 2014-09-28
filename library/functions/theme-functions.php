@@ -410,7 +410,7 @@ if ( ! function_exists( 'sp_get_album_gallery' ) ) {
 		global $post;
 
 		$gallery = explode( ',', get_post_meta( $album_id, 'sp_gallery', true ) );
-		$out = '<div class="gallery clearfix">';
+		$out = '<div class="gallery thumb-container clearfix">';
 		
 		if ( $gallery[0] != '' ) :
 			foreach ( $gallery as $image ) :
@@ -418,14 +418,14 @@ if ( ! function_exists( 'sp_get_album_gallery' ) ) {
 			$thumb = wp_get_attachment_url($image, 'large');
             $image_url = aq_resize( $thumb, 300, 220, true );
 
-			$out .= '<div class="one-third">';
+			$out .= '<article class="one-third">';
 			$out .= '<div class="thumb-icon">';
 			$out .= '<img class="attachment-medium wp-post-image" src="' . $image_url . '">';
 			$out .= '<div class="bg-mask">';
-            $out .= '<a href="' . $thumb . '" class="icon icon-search"></a>';
+            $out .= '<a href="' . $thumb . '" class="icon icon-search-1"></a>';
             $out .= '</div>';
 			$out .= '</div>';
-			$out .= '</div><!-- .one-third -->';
+			$out .= '</article><!-- .one-third -->';
 			endforeach; 
 		else : 
 			$out .= __( 'Sorry there is no image for this album.', SP_TEXT_DOMAIN );
@@ -452,22 +452,21 @@ if ( ! function_exists( 'sp_get_cover_album' ) ) {
 		$custom_query = new WP_Query( $args );
 
 		if( $custom_query->have_posts() ) :
-			$out = '<div class="album-cover clearfix">';
+			$out = '<div class="thumb-container clearfix">';
 			while ( $custom_query->have_posts() ) : $custom_query->the_post();
 				
 				$thumb = wp_get_attachment_url(get_post_thumbnail_id(), 'large');
 	            $image_url = aq_resize( $thumb, 480, 240, true );
 
-				$out .= '<div class="one-third">';
+				$out .= '<article class="one-third">';
 				$out .= '<div class="thumb-icon">';
 				$out .= '<img class="attachment-medium wp-post-image" src="' . $image_url . '">';
 				$out .= '<div class="bg-mask">';
-	            $out .= '<a href="' . get_the_permalink() . '" class="icon icon-search"></a>';
+	            $out .= '<a href="' . get_the_permalink() . '" class="icon icon-search-1"></a>';
 	            $out .= '</div>';
 	            $out .= '</div>';
-	            $out .= '<h3><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>';
-	            $out .= '<span>' . get_the_date() . '</span>';
-				$out .= '</div><!-- .one-third -->';
+	            $out .= '<h5><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h5>';
+	            $out .= '</article><!-- .one-third -->';
 
 			endwhile; wp_reset_postdata();
 			$out .= '</div><!-- .album-cover -->';
@@ -491,7 +490,13 @@ if ( ! function_exists( 'sp_sliders' ) ) {
 						$(".post-slider").flexslider({
 							animation: "slide",
 							pauseOnHover: true,
-							controlNav: false
+							smoothHeight: "true",
+							before: function(slider) {
+							    $(".flex-caption").delay(100).fadeOut(100);
+							},
+							after: function(slider) {
+							  $(".flex-active-slide").find(".flex-caption").delay(200).fadeIn(400);
+							}
 						});
 					});		
 					</script>';
@@ -521,11 +526,14 @@ if ( ! function_exists( 'sp_sliders' ) ) {
 
 		foreach ( $sliders as $image ){
 			
-			$thumb = wp_get_attachment_url($image, $size);
-            $image_url = aq_resize( $thumb, 960, 450, true );
+			$images = wp_get_attachment( $image );
+			$image_url = aq_resize( $images['src'], 960, 450, true );
 
 			$out .= '<li>';
-			$out .= '<img src="' . $image_url . '">';
+			$out .= '<img src="' . $image_url . '" alt="' . $images['caption'] . '">';
+			if ( $images['caption'] ):
+				$out .= '<p class="flex-caption">' . $images['caption'] . '</p>';
+			endif; 
 			$out .= '</li>';
 		
 		}
@@ -559,7 +567,7 @@ if ( ! function_exists( 'sp_sliders' ) ) {
 /*	Insert post type highlight
 /* ---------------------------------------------------------------------- */
 if ( ! function_exists( 'sp_post_type_highlight' ) ) {
-	function sp_post_type_highlight( $post_type, $numberposts = '10', $excerpt = true ){
+	function sp_post_type_highlight( $post_type, $post_cols = 'one_third', $numberposts = '10', $excerpt = true ){
 
 		$args = array(
             'post_type' => $post_type, 
@@ -569,30 +577,30 @@ if ( ! function_exists( 'sp_post_type_highlight' ) ) {
 
         $custom_query = new WP_Query( $args );
 
-        $out = '<div class="post-highlight clearfix">';
-        $out .= '<ul>';
+        $out = '<div class="thumb-container clearfix">';
+        
         while ( $custom_query->have_posts() ) : $custom_query->the_post();
-            $thumb = wp_get_attachment_url(get_post_thumbnail_id(), 'medium');
-            $image_url = aq_resize( $thumb, 300, 220, true );
-            $out .= '<li>';
+            $thumb = wp_get_attachment_url(get_post_thumbnail_id(), 'large');
+            $image_url = aq_resize( $thumb, 450, 330, true );
+        	$out .= '<article class="'. $post_cols .'">';    
             $out .= '<div class="thumb-icon">';
             if ( has_post_thumbnail() ) :
-                $out .= '<img src="' . $image_url . '"/>'; 
+                $out .= '<img class="attachment-medium wp-post-image" src="' . $image_url . '"/>'; 
             else : 
-                $out .= '<img src="' . SP_ASSETS_THEME .'images/placeholder/thumbnail-300x225.gif">';   
+                $out .= '<img class="attachment-medium wp-post-image" src="' . SP_ASSETS_THEME .'images/placeholder/thumbnail-300x225.gif">';   
             endif;
             $out .= '<div class="bg-mask">';
-            $out .= '<a href="' . get_the_permalink() . '" class="icon icon-search"></a>';
+            $out .= '<a href="' . get_the_permalink() . '" class="icon icon-search-1"></a>';
             $out .= '</div>';
             $out .= '</div>';
-            $out .= '<h3><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>';
+            $out .= '<h5><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h5>';
             if ( $excerpt )
            		$out .= '<p>' . get_the_excerpt() . '</p>';	
-            $out .= '</li>';
+           	$out .= '</article>';
         endwhile;
         wp_reset_postdata(); 
         
-        $out .= '</ul>';
+        $out .= '</div>';
 
         return $out;
 	}

@@ -408,7 +408,7 @@ function sp_custom_login_logo() {
 	$out .='<style type="text/css">';
 	$out .='body.login{ background-color:#ffffff; }';
 	if ($custom_logo) {	
-	    $out .='.login h1 a { background-image:url('.ot_get_option('custom-logo').') !important; height: 157px!important; width: 100%!important; background-size: 80%!important;}';
+	    $out .='.login h1 a { background-image:url('.ot_get_option('custom-logo').') !important; height: 157px!important; width: 100%!important; background-size: 70%!important;}';
 	} else {
 		$out .='.login h1 a { background-image:url('.get_template_directory_uri().'/assets/images/logo.png) !important; height: 157px!important; width: 100%!important; background-size: auto!important;}';
 	}

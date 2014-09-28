@@ -1,5 +1,11 @@
 /* Direction Nav */
-.flexslider { margin-bottom: 30px; border-color:#9c7924; }
+.flexslider { 
+	margin-bottom: 30px; 
+	border-color:#9c7924; 
+	-webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+}
 .flexslider .slides > li { position: relative; }
 .flexslider .slides li,
 .flex-direction-nav li { margin-bottom: 0; margin-top: 0;}

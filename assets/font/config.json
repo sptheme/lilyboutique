@@ -85,6 +85,30 @@
       "src": "entypo"
     },
     {
+      "uid": "d090355c31f497b61d676416c1fd39fb",
+      "css": "twitter",
+      "code": 59415,
+      "src": "entypo"
+    },
+    {
+      "uid": "47bd87a650e95b97f947d275ed968efe",
+      "css": "facebook-squared-1",
+      "code": 59416,
+      "src": "entypo"
+    },
+    {
+      "uid": "b945f4ac2439565661e8e4878e35d379",
+      "css": "gplus",
+      "code": 59417,
+      "src": "entypo"
+    },
+    {
+      "uid": "689febe699d74bc8862965555503e445",
+      "css": "pinterest",
+      "code": 59418,
+      "src": "entypo"
+    },
+    {
       "uid": "id8wp0cygl9trzbhlbd9o0fygiesi629",
       "css": "search-1",
       "code": 59404,

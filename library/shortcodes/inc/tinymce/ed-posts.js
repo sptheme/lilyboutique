@@ -28,8 +28,17 @@
 							<td><select name="post-type" id="sc-post-type">\
 							<option value="facility">Facilities</option>\
 							<option value="room">Rooms</option>\
+							</select>\
+							</td>\
+							</tr>\
+							<tr>\
+							<th><label for="sc-post-cols">Select post columns</label></th>\
+							<td><select name="post-cols" id="sc-post-cols">\
+							<option value="two-fourth">1/2</option>\
+							<option value="one-third">1/3</option>\
+							<option value="one-fourth">1/4</option>\
 							</select><br />\
-							<small>Select a style for post.</small></td>\
+							<small>Select columns style for post.</small></td>\
 							</tr>\
 							<tr>\
 							<th><label for="sc-post-num">Number of post</label></th>\
@@ -48,6 +57,7 @@
 		form.appendTo( 'body' ).hide();
 		form.find( '#sc-posts-submit' ).click( function() {
 			var post_type = table.find( '#sc-post-type' ).val(),
+			post_cols = table.find( '#sc-post-cols' ).val(),
 			numberposts = table.find( '#sc-post-num' ).val(),
 			excerpt = '';
 			shortcode = '';
@@ -56,7 +66,7 @@
 			} else {
 				excerpt = 0;
 			}
-			shortcode += '[posts post_type="' + post_type + '" numberposts="' + numberposts + '" excerpt="' + excerpt + '"]';
+			shortcode += '[posts post_type="' + post_type + '" post_cols="' + post_cols + '" numberposts="' + numberposts + '" excerpt="' + excerpt + '"]';
 
 			tinyMCE.activeEditor.execCommand( 'mceInsertContent', 0, shortcode );
 			tb_remove();

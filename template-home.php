@@ -7,10 +7,7 @@ get_header(); ?>
 
 <div class="promo-box">
     <div class="inner-box">
-        <p>Live with</p>
-        <h2>LILY BOUTIQUE</h2>
-        <p>from only $35/day</p>
-        <a class="button" href="#">Explore</a>
+        <?php the_content(); ?>
     </div>
 </div>
 
