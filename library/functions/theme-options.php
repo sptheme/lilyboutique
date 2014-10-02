@@ -121,6 +121,16 @@ function custom_theme_options() {
 			'section'	=> 'general'
 		),
 
+		// Page: Reservation form
+		array(
+			'id'		=> 'reservation-page',
+			'label'		=> 'Select reservation page',
+			'desc'		=> 'Select page that have reservation form',
+			'std'		=> '',
+			'type'		=> 'page-select',
+			'section'	=> 'general'
+		),
+
 		// Footer: Copyright
 		array(
 			'id'		=> 'copyright',

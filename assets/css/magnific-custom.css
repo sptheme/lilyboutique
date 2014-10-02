@@ -140,3 +140,13 @@
 }
 .mfp-arrow:hover {opacity:1;}
 .mfp-arrow:before, .mfp-arrow:after {content:normal;}
+
+/* Modal popup */
+.white-popup-block {
+  background: #FFF;
+  padding: 20px 30px;
+  text-align: left;
+  max-width: 650px;
+  margin: 40px auto;
+  position: relative;
+}
