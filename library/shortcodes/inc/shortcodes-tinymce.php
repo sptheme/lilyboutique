@@ -15,7 +15,7 @@ function sp_shortcodes_register_mce_button( $buttons ) {
 	array_push( $buttons, 'toggle' );
 	array_push( $buttons, 'tab' );
 	array_push( $buttons, 'gallery' );
-	//array_push( $buttons, 'testimonial' );
+	array_push( $buttons, 'testimonial' );
 	array_push( $buttons, 'posts' );
 	array_push( $buttons, 'amenities' );
 
@@ -32,7 +32,7 @@ function sp_shortcodes_add_tinymce_plugin($plugin_array) {
 	$plugin_array['toggle']			= ED_JS_URL . 'ed-toggle.js';
 	$plugin_array['tab']			= ED_JS_URL . 'ed-tab.js';
 	$plugin_array['gallery']		= ED_JS_URL . 'ed-gallery.js';
-	//$plugin_array['testimonial']	= ED_JS_URL . 'ed-testimonial.js';
+	$plugin_array['testimonial']	= ED_JS_URL . 'ed-testimonial.js';
 	$plugin_array['posts']			= ED_JS_URL . 'ed-posts.js';
 	$plugin_array['amenities']		= ED_JS_URL . 'ed-amenities.js';
 	$plugin_array['btn']			= ED_JS_URL . 'ed-button.js';

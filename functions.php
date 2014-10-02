@@ -32,6 +32,7 @@ if ( ! isset( $cp_menu_position ) )
 			'menu_room'	=> 30,
 			'menu_facility'	=> 33,
 			'menu_gallery'	=> 39,
+			'menu_testimonial' => 42
 		);
 
 

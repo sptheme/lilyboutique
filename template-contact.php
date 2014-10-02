@@ -9,15 +9,15 @@ get_header(); ?>
         //Past meta value into var
         $map_locations = get_post_meta($post->ID, 'sp_contact_map', true); //'11.549118,104.937882'; 
         $map_loc = explode(',', $map_locations);
-        $latitude_center = $map_loc[0] + 0.008;// Variable to align the marker on the right side of the map, instead of the center    
+        $latitude_center = $map_loc[0] + 0.010;// Variable to align the marker on the right side of the map, instead of the center    
     ?>
 
     <div id="map-container">
         <div class="map-inner">
+                 
             <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-            <script type="text/javascript">                 
-              jQuery(document).ready(function ($)
-                {
+            <script type="text/javascript">    
+              jQuery(document).ready(function($){
                     
                     var map_styles = [
                         {
@@ -88,7 +88,7 @@ get_header(); ?>
                         icon:image,
                         animation: google.maps.Animation.DROP
                     });
-
+                    
                     infowindow.open(map,marker);
 
                     google.maps.event.addListener(marker, 'click', function() {
