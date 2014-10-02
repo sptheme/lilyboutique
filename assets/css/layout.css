@@ -632,6 +632,149 @@ ul.amenities li:before { margin-right: 5px; }
   border-top-color:#3B3B3B;
 }
 
+/* Contact form 7 */
+form label { 
+  text-align: left;
+  font-size: 13px; 
+}
+span.wpcf7-not-valid-tip {
+  font-size: 11px;
+}
+
+/* ---------------------------------------------------------------
+ * FORM
+ * ------------------------------------------------------------ */
+input, textarea, button, select, label { font-family: inherit; }
+input,
+textarea,
+button,
+select,
+label { font-size: 13px; }
+
+input::-moz-focus-inner, 
+button::-moz-focus-inner { 
+  border: 0; 
+  padding: 0; 
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"],
+button, 
+textarea { 
+  margin: 0; 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box; 
+  -webkit-border-radius: 0; 
+  border-radius: 0; 
+}
+
+input, 
+textarea, 
+button { 
+  -moz-appearance: none; 
+  -webkit-appearance: none; 
+  -moz-transition: all .2s ease; 
+  -webkit-transition: all .2s ease; 
+  transition: all .2s ease; 
+}
+
+input[type="checkbox"] { 
+  -moz-appearance: checkbox; 
+  -webkit-appearance: checkbox; 
+}
+
+input[type="radio"] { 
+  -moz-appearance: radio; 
+  -webkit-appearance: radio; 
+}
+
+label { 
+  color: #444; 
+}
+
+input[type="text"],
+input[type="tel"], 
+input[type="date"], 
+input[type="password"], 
+input[type="email"],
+select, 
+textarea { 
+  background:#F7F7F7;
+  border:1px solid #E9E9E9;
+  padding: 0.7em 1em;
+  color:#ACACAC;
+  display: block; 
+  max-width: 100%; 
+  outline: none; 
+} 
+
+input[type="text"]:focus, 
+input[type="tel"]:focus, 
+input[type="date"]:focus,
+input[type="password"]:focus, 
+input[type="email"]:focus,
+select:focus, 
+textarea:focus { 
+  border-color: #ae8728; 
+  color: #444; 
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.1); 
+  box-shadow: 0 0 3px rgba(0,0,0,0.1); 
+}
+
+label .required { color: #3b8dbd; }
+
+input[type="submit"],
+button[type="submit"] { 
+  font-size: 12px;
+  display: inline-block;
+  border:2px solid #ae8728;
+  background: #ffffff;
+  padding: 3px 20px;
+  text-transform: uppercase;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px; 
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover { 
+  background: #9c7924;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+select::-ms-expand {
+    display: none; /* hide default arrow in IE10 */
+}
+
+select {
+  padding-right: 2em;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background: url('../images/dropdown-arrow.png') no-repeat 100% 9px #F7F7F7;
+  *background-image:none; /* turn bg image for IE7 */
+  background: url('../images/dropdown-arrow.png') no-repeat 100% 9px #F7F7F7; /* fallback bg image*/
+  -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+  -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+  -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+  appearance: none;
+}
+/* Targeting Firefox Users Only */
+@-moz-document url-prefix() {
+select {
+  padding-bottom: 0.01px;
+  background: url('../images/dropdown-arrow.png') no-repeat 100% 10px #F7F7F7;
+}
+}
+select option {
+  background: #fff; /* style the dropdown bg color */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 /* -------------------------------------------------- */
 /*  PAGINATION
 /* -------------------------------------------------- */
