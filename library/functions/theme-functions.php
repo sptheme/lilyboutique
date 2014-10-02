@@ -613,11 +613,12 @@ if ( ! function_exists( 'sp_get_testimonial' ) ) {
 		global $post;
 
 		$out = '';
-
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		$args = array(
 			'post_type' => 'testimonial',
 			'post_status' => 'publish',
-			'posts_per_page' => $numberposts
+			'posts_per_page' => $numberposts,
+			'paged' => $paged
 			);
 		$custom_query = new WP_Query( $args );
 
@@ -640,6 +641,11 @@ if ( ! function_exists( 'sp_get_testimonial' ) ) {
 		
 		endwhile;
 		wp_reset_postdata();
+		// Pagination
+        if(function_exists('wp_pagenavi'))
+            $out .= wp_pagenavi();
+        else 
+            $out .= sp_pagination($custom_query->max_num_pages);
 
 		return $out;	
 	}
@@ -696,6 +702,7 @@ if ( ! function_exists( 'sp_post_type_sub_nav' ) ) {
 			}
 			endwhile; wp_reset_postdata();
 		$out .= '</ul>';	
+
 		endif; 
 
 		return $out;

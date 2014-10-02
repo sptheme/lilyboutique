@@ -149,6 +149,32 @@ $post_format_gallery = array(
 );
 
 /* ---------------------------------------------------------------------- */
+/*	Testimonial post type
+/* ---------------------------------------------------------------------- */
+$post_type_testimonial = array(
+	'id'          => 'testimonial-setting',
+	'title'       => 'Testimonial meta',
+	'desc'        => '',
+	'pages'       => array( 'testimonial' ),
+	'context'     => 'normal',
+	'priority'    => 'high',
+	'fields'      => array(
+		array(
+			'label'		=> 'Nationality',
+			'id'		=> $prefix . 'testimonial_cite',
+			'type'		=> 'text',
+			'desc'		=> 'Enter the country name of the testimonial.'
+		),
+		array(
+			'label'		=> 'Testimonial Cite Subtext',
+			'id'		=> $prefix . 'testimonial_cite_subtext',
+			'type'		=> 'text',
+			'desc'		=> 'Enter living action of this guest (optional).'
+		)
+	)
+);
+
+/* ---------------------------------------------------------------------- */
 /*	Metabox for Page and Post Background
 /* ---------------------------------------------------------------------- */
 $page_bg_slideshow = array(
@@ -226,6 +252,7 @@ function sp_maybe_include() {
 	ot_register_meta_box( $post_format_gallery );
 	ot_register_meta_box( $post_format_video );
 	ot_register_meta_box( $post_type_gallery );
+	ot_register_meta_box( $post_type_testimonial );
 	ot_register_meta_box( $page_bg_slideshow );
 
 	$template_file = sp_maybe_include();
