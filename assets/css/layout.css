@@ -633,13 +633,24 @@ ul.amenities li:before { margin-right: 5px; }
 }
 
 /* Contact form 7 */
-form label { 
+.wpcf7-form-inner label { 
   text-align: left;
   font-size: 13px; 
+}
+.wpcf7-form-inner select,
+.wpcf7-form-inner textarea,
+.wpcf7-form-inner input[type="submit"] {
+  width: 100%;
 }
 span.wpcf7-not-valid-tip {
   font-size: 11px;
 }
+.wpcf7-validation-errors {
+  font-size: 12px;
+  text-align: center;
+}
+
+#booking-form h3{ color: #ae8728; }
 
 /* ---------------------------------------------------------------
  * FORM
