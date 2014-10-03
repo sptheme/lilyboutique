@@ -118,7 +118,8 @@ ul.primary-nav li > a {
 ul.primary-nav li.nav-stay > a { background-position: 0 -48px; }
 ul.primary-nav li.nav-facilities > a { background-position: 0 -96px; }
 ul.primary-nav li.nav-gallery > a { background-position: 0 -144px; }
-ul.primary-nav li.nav-contact > a { background-position: 0 -192px; }
+ul.primary-nav li.nav-testimonial > a { background-position: 0 -192px; }
+ul.primary-nav li.nav-contact > a { background-position: 0 -240px; }
 
 /* End icons menu */
 
@@ -149,20 +150,29 @@ ul.primary-nav li ul li a {
 
 /* active and hover */
 ul.primary-nav li a:hover,
-ul.primary-nav li.active > a {
+ul.primary-nav li.active > a,
+ul.primary-nav li.current_page_item a {
   color:#6e4636; 
 }
 
 ul.primary-nav .nav-hotel.active > a,
+ul.primary-nav .nav-hotel.current_page_item a,
 ul.primary-nav .nav-hotel > a:hover { background-position: 0 -24px; }
 ul.primary-nav .nav-stay.active > a,
+ul.primary-nav .nav-stay.current_page_item a,
 ul.primary-nav .nav-stay > a:hover { background-position: 0 -72px; }
 ul.primary-nav .nav-facilities.active > a,
+ul.primary-nav .nav-facilities.current_page_item a,
 ul.primary-nav .nav-facilities > a:hover { background-position: 0 -120px; }
 ul.primary-nav .nav-gallery.active > a,
+ul.primary-nav .nav-gallery.current_page_item a,
 ul.primary-nav .nav-gallery > a:hover { background-position: 0 -168px; }
+ul.primary-nav .nav-testimonial.active > a,
+ul.primary-nav .nav-testimonial.current_page_item a,
+ul.primary-nav .nav-testimonial > a:hover { background-position: 0 -216px; }
 ul.primary-nav .nav-contact.active > a,
-ul.primary-nav .nav-contact > a:hover { background-position: 0 -216px; }
+ul.primary-nav .nav-contact.current_page_item a,
+ul.primary-nav .nav-contact > a:hover { background-position: 0 -264px; }
 
 /* ---------------------------------------------------------------
  * Post Entry
