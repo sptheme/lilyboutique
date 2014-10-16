@@ -526,13 +526,14 @@ if ( ! function_exists( 'sp_sliders' ) ) {
 
 		foreach ( $sliders as $image ){
 			
-			$images = wp_get_attachment( $image );
-			$image_url = aq_resize( $images['src'], 960, 450, true );
+			$image_data = wp_get_attachment( $image );
+			$thumb = wp_get_attachment_url( $image, 'large' );
+			$image_url = aq_resize( $thumb, 960, 450, true );
 
 			$out .= '<li>';
-			$out .= '<img src="' . $image_url . '" alt="' . $images['caption'] . '">';
-			if ( $images['caption'] ):
-				$out .= '<p class="flex-caption">' . $images['caption'] . '</p>';
+			$out .= '<img src="' . $image_url . '" alt="' . $image_data['caption'] . '">';
+			if ( $image_data['caption'] ):
+				$out .= '<p class="flex-caption">' . $image_data['caption'] . '</p>';
 			endif; 
 			$out .= '</li>';
 		
@@ -547,10 +548,10 @@ if ( ! function_exists( 'sp_sliders' ) ) {
 			
 			foreach ( $sliders as $thumb ){
 				
-				$thumb_url = wp_get_attachment_image_src($thumb, 'medium');
+				$thumb_url = wp_get_attachment_url($thumb, 'medium');
 
 				$out .= '<li>';
-				$out .= '<img src="' . $thumb_url[0] . '">';
+				$out .= '<img src="' . $thumb_url . '">';
 				$out .= '</li>';
 			
 			}

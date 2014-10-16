@@ -20,7 +20,7 @@ get_header(); ?>
 					</header>
 
 					<div class="entry-content">
-						<?php echo sp_get_album_gallery( $post->ID, '', 'post-slider' ); ?>
+						<?php echo sp_get_album_gallery( $post->ID, '', 'large' ); ?>
 					</div><!-- .entry-content -->
 					<?php if ( ot_get_option('social_share') != 'off' ) { get_template_part('library/contents/social-share'); } ?>
 
