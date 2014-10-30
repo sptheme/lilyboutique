@@ -54,16 +54,17 @@
             <?php echo sp_main_navigation(); ?>
         </nav>
 
-        <div class="icons-social">
+        <!-- <div class="icons-social">
             <a href="#"><img src="<?php echo SP_ASSETS_THEME; ?>images/icon-agoda.png"></a>
-        </div>
+        </div> -->
 
         <div class="quick-contact">
             <ul>
             <li class="address"># A27-A28 , La Seine , Koh Pich, Pnom Penh, Cambodia</li>
-            <li class="email"><a href="mailto:info@lilyboutiquehotel.com">info@lilyboutiquehotel.com</a></li>
-            <li class="tel">+855 23 666 333</li>
-            <li class="hp">+855 17 666 333</li>
+            <li class="email"><a href="mailto:info@shalyboutiquehotel.com">info@shalyboutiquehotel.com</a></li>
+            <li class="tel">Tel: +855 23 982 656</li>
+            <li class="hp">HP: +855 17 666 916</li>
+            <li class="fax">Fax: +855 23 982 655</li>
             </ul>
         </div>
 

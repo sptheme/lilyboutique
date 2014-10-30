@@ -46,10 +46,12 @@ get_header(); ?>
                     ];
 
                     var contentString = '<div id="map-info">'+
-                                        '<h3>Lily Boutique Hotel</h3>'+
+                                        '<h3>Shaly Boutique Hotel</h3>'+
                                         '<span># A27-A28 , La Seine , Koh Pich, Pnom Penh, Cambodia</span>'+
-                                        '<span>HP: 017 666 916</span>'+
-                                        '<span>E-mail: <a href="mailto:info@lilyboutiquehotel.com"> info@lilyboutiquehotel.com</a></span>'+
+                                        '<span>Tel: +855 23 982 656</span>'+
+                                        '<span>HP: +855 17 666 916</span>'+
+                                        '<span>Fax: +855 23 982 655</span>'+
+                                        '<span>E-mail: <a href="mailto:info@shalyboutiquehotel.com"> info@shalyboutiquehotel.com</a></span>'+
                                         '<div class="directions-container">'+
                                         '<a href="https://maps.google.com/?saddr=&amp;daddr=<?php echo $map_locations; ?>" class="button" target="_blank"><span class="icon-location"></span>Get Directions</a>'+
                                         '<a href="#booking-form" class="button last" id="book"><span class="icon-calendar"></span>Make reservation</a>'+
