@@ -137,7 +137,7 @@ $post_format_gallery = array(
 	'desc'        => 'Standard post galleries.</i>',
 	'pages'       => array( 'post' ),
 	'context'     => 'normal',
-	'priority'    => 'high',
+	'priority'    => 'default',
 	'fields'      => array(
 		array(
 			'label'		=> 'Upload photo',
@@ -170,6 +170,26 @@ $post_type_testimonial = array(
 			'id'		=> $prefix . 'testimonial_cite_subtext',
 			'type'		=> 'text',
 			'desc'		=> 'Enter living action of this guest (optional).'
+		)
+	)
+);
+
+/* ---------------------------------------------------------------------- */
+/*	Room post type
+/* ---------------------------------------------------------------------- */
+$post_type_room = array(
+	'id'          => 'room-setting',
+	'title'       => 'Room Info',
+	'desc'        => '',
+	'pages'       => array( 'room' ),
+	'context'     => 'normal',
+	'priority'    => 'high',
+	'fields'      => array(
+		array(
+			'label'		=> 'Price',
+			'id'		=> $prefix . 'room_rate',
+			'type'		=> 'text',
+			'desc'		=> 'Price per day. Only value. e.g: 58'
 		)
 	)
 );
@@ -253,6 +273,7 @@ function sp_maybe_include() {
 	ot_register_meta_box( $post_format_video );
 	ot_register_meta_box( $post_type_gallery );
 	ot_register_meta_box( $post_type_testimonial );
+	ot_register_meta_box( $post_type_room );
 	ot_register_meta_box( $page_bg_slideshow );
 
 	$template_file = sp_maybe_include();

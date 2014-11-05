@@ -659,16 +659,18 @@ if ( ! function_exists( 'sp_html_amenities' ) ) {
 	function sp_html_amenities() {
 		$out = '';
 		$out .= '<ul class="amenities">';
-        $out .= '<li class="bed">' . __('Family room', SP_TEXT_DOMAIN) . '</li>';
-        $out .= '<li class="laundry">' . __('Laundry service', SP_TEXT_DOMAIN) . '</li>';
-        $out .= '<li class="safe-deposit">' . __('Safety deposit boxes', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="livingroom">' . __('Family room', SP_TEXT_DOMAIN) . '</li>';
         $out .= '<li class="wifi">' . __('Wifi', SP_TEXT_DOMAIN) . '</li>';
-        $out .= '<li class="tv">' . __('LCD TV', SP_TEXT_DOMAIN) . '</li>';
-        $out .= '<li class="brackfast">' . __('Breakfast', SP_TEXT_DOMAIN) . '</li>';
-        $out .= '<li class="parking">' . __('Car Parking', SP_TEXT_DOMAIN) . '</li>';
-        $out .= '<li class="pool">' . __('Poolside', SP_TEXT_DOMAIN) . '</li>';
-        $out .= '<li class="smoking">' . __('Smoking', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="tv">' . __('LED TV', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="fridge">' . __('Mini fridge', SP_TEXT_DOMAIN) . '</li>';
         $out .= '<li class="air-conditioner">' . __('Air Conditioner', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="safe-deposit">' . __('Safety deposit boxes', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="bathroom">' . __('Bathroom', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="brackfast">' . __('Breakfast', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="laundry">' . __('Laundry service', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="parking">' . __('Car Parking', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="smoking">' . __('Smoking', SP_TEXT_DOMAIN) . '</li>';
+        $out .= '<li class="skybar">' . __('Skybar', SP_TEXT_DOMAIN) . '</li>';
         $out .= '</ul>';
 
         return $out;

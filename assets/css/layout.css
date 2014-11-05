@@ -326,6 +326,30 @@ ul.primary-nav .nav-contact > a:hover { background-position: 0 -264px; }
  * UI Elements
  * ------------------------------------------------------------ */
 
+/* Room rate */
+.single-room .entry-content ul li{ 
+  list-style: none;
+  font-size: 13px; 
+  background: url(../images/icon-check.png) no-repeat;
+  padding-left: 20px;
+}
+.room-rate {
+  background: #9c7924;
+  display: inline-block;
+  padding: 3px 15px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-border-radius: 16px;
+     -moz-border-radius: 16px;
+          border-radius: 16px;
+}
+.room-rate span {
+  font-size: 13px;
+  font-weight: 400;
+}
+
 /* Button and learn more */
 a.learn-more {
   font-size: 11px;
@@ -541,17 +565,23 @@ ul.amenities li {
   margin: 3px 15px;
   font-size: 13px;
 }
+.single-room ul.amenities li { 
+  background: none; 
+  padding-left: 0;
+}
 ul.amenities li:before { margin-right: 5px; }
-.bed:before {
-  content:url(../images/icon-bed.png);
+.livingroom:before {
+  content:url(../images/icon-livingroom.png);
 }
 .laundry:before { content:url(../images/icon-laundry.png); }
 .safe-deposit:before {  content:url(../images/icon-safe-deposit.png); }
 .wifi:before {  content:url(../images/icon-wifi.png);  }
 .tv:before { content:url(../images/icon-tv.png); }
+.fridge:before { content:url(../images/icon-fridge.png); }
 .brackfast:before {   content:url(../images/icon-coffee.png);   }
+.bathroom:before {   content:url(../images/icon-bathroom.png);   }
 .parking:before {   content:url(../images/icon-car.png);   }
-.pool:before {  content:url(../images/icon-poolswimming.png);   }
+.skybar:before {  content:url(../images/icon-cocktail.png);   }
 .smoking:before {  content:url(../images/icon-smoking.png);   }
 .air-conditioner:before {   content:url(../images/icon-airconditioner.png);   }
 
