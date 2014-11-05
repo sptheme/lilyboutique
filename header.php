@@ -54,17 +54,34 @@
             <?php echo sp_main_navigation(); ?>
         </nav>
 
-        <!-- <div class="icons-social">
-            <a href="#"><img src="<?php echo SP_ASSETS_THEME; ?>images/icon-agoda.png"></a>
-        </div> -->
+        <div class="icons-social">
+            <!-- Agoda -->
+            <?php if(ot_get_option('agoda')) : ?>
+            <a href="<?php echo ot_get_option('agoda'); ?>" target="_blank" title="Shaly page on Agoda"><img src="<?php echo SP_ASSETS_THEME; ?>images/icon-agoda.png"></a>
+            <?php endif; ?>
+            <!-- Trip Advisor -->
+            <?php if(ot_get_option('tripadvisor')) : ?>
+            <a href="<?php echo ot_get_option('tripadvisor'); ?>" target="_blank" title="Shaly page on Trip Advisor"><img src="<?php echo SP_ASSETS_THEME; ?>images/icon-tripadvisor.png"></a>
+            <?php endif; ?>
+            <!-- Facebook -->
+            <?php if(ot_get_option('facebook')) : ?>
+            <a href="<?php echo ot_get_option('facebook'); ?>" target="_blank" title="Join us on Facebook"><img src="<?php echo SP_ASSETS_THEME; ?>images/icon-facebook.png"></a>
+            <?php endif; ?>
+        </div>
 
         <div class="quick-contact">
             <ul>
-            <li class="address"># A27-A28 , La Seine , Koh Pich, Pnom Penh, Cambodia</li>
-            <li class="email"><a href="mailto:info@shalyboutiquehotel.com">info@shalyboutiquehotel.com</a></li>
-            <li class="tel">Tel: +855 23 982 656</li>
-            <li class="hp">HP: +855 17 666 916</li>
-            <li class="fax">Fax: +855 23 982 655</li>
+            <li class="address"><?php echo ot_get_option('address'); ?></li>
+            <li class="email"><a href="mailto:<?php echo ot_get_option('email'); ?>"><?php echo ot_get_option('email'); ?></a></li>
+            <?php if(ot_get_option('tel')) : ?>
+            <li class="tel">Tel: <?php echo ot_get_option('tel'); ?></li>
+            <?php endif; ?>
+            <?php if(ot_get_option('tel')) : ?>
+            <li class="tel">HP: <?php echo ot_get_option('phone'); ?></li>
+            <?php endif; ?>
+            <?php if(ot_get_option('tel')) : ?>
+            <li class="tel">Fax: <?php echo ot_get_option('fax'); ?></li>
+            <?php endif; ?>
             </ul>
         </div>
 

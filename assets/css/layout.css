@@ -462,6 +462,10 @@ ul.sub-nav li.current_page_item {
   margin-left: 10px;
   margin-bottom: 30px; 
 }
+.icons-social a {
+  display: inline-block;
+  padding-right: 5px;
+}
 
 /* Quick contact */
 .quick-contact { margin-left: 10px; }

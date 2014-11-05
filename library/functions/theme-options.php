@@ -48,8 +48,12 @@ function custom_theme_options() {
 			'title'		=> 'General'
 		),
 		array(
-			'id'		=> 'pages',
-			'title'		=> 'Pages'
+			'id'		=> 'background',
+			'title'		=> 'Background'
+		),
+		array(
+			'id'		=> 'contact',
+			'title'		=> 'Contact'
 		),
 		array(
 			'id'		=> 'layout',
@@ -121,16 +125,6 @@ function custom_theme_options() {
 			'section'	=> 'general'
 		),
 
-		// Page: Reservation form
-		array(
-			'id'		=> 'reservation-page',
-			'label'		=> 'Select reservation page',
-			'desc'		=> 'Select page that have reservation form',
-			'std'		=> '',
-			'type'		=> 'page-select',
-			'section'	=> 'general'
-		),
-
 		// Footer: Copyright
 		array(
 			'id'		=> 'copyright',
@@ -140,13 +134,95 @@ function custom_theme_options() {
 			'type'		=> 'text',
 			'section'	=> 'general'
 		),
+		// Contact:
+		array(
+			'id'		=> 'agoda',
+			'label'		=> 'Agoda URL',
+			'desc'		=> 'Enter Agoda page url',
+			'std'		=> '',
+			'type'		=> 'text',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'tripadvisor',
+			'label'		=> 'Trip Advisor URL',
+			'desc'		=> 'Enter Tripadvisor page url',
+			'std'		=> '',
+			'type'		=> 'text',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'facebook',
+			'label'		=> 'Facebook URL',
+			'desc'		=> 'Enter facebook page url',
+			'std'		=> '',
+			'type'		=> 'text',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'address',
+			'label'		=> 'Address',
+			'desc'		=> '',
+			'std'		=> '# A27-A28 , La Seine , Koh Pich, Pnom Penh, Cambodia',
+			'type'		=> 'textarea-simple',
+			'rows'      => '3',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'email',
+			'label'		=> 'Email',
+			'desc'		=> '',
+			'std'		=> 'info@shalyboutiquehotel.com',
+			'type'		=> 'text',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'tel',
+			'label'		=> 'Telephone',
+			'desc'		=> '+855 23 982 656',
+			'std'		=> '',
+			'type'		=> 'text',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'phone',
+			'label'		=> 'Mobile',
+			'desc'		=> '+855 17 666 916',
+			'std'		=> '',
+			'type'		=> 'text',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'fax',
+			'label'		=> 'Fax number',
+			'desc'		=> '+855 17 666 916',
+			'std'		=> '',
+			'type'		=> 'text',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'fax',
+			'label'		=> 'Fax',
+			'desc'		=> '+855 23 982 655',
+			'std'		=> '',
+			'type'		=> 'text',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'reservation-page',
+			'label'		=> 'Select reservation page',
+			'desc'		=> 'Select page that have reservation form',
+			'std'		=> '',
+			'type'		=> 'page-select',
+			'section'	=> 'contact'
+		),
 		// Page: Background
 		array(
 			'id'		=> 'page-bg-slideshow',
 			'label'		=> 'Background pages',
 			'desc'		=> 'Upload background images, max 5. and use min size 1024px by 768px',
 			'type'		=> 'gallery',
-			'section'	=> 'pages'
+			'section'	=> 'background'
 		),
 		// Layout : Global
 		array(
