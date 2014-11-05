@@ -21,6 +21,17 @@ get_header(); ?>
 				</header>
 				<div class="entry-content">
 					<?php the_content(); ?>
+					<a href="#booking-form" class="button" id="book"><span class="icon-calendar"></span>Make reservation</a>
+					<script type="text/javascript">
+						jQuery(document).ready(function(){
+							$('#book').magnificPopup({
+		                            type: 'inline',
+		                            preloader: false,
+		                            removalDelay: 500,
+		                            mainClass: 'mfp-fade'
+		                        });
+						});
+					</script>
 				</div><!-- .entry-content -->
 				<?php if ( ot_get_option('social_share') != 'off' ) { get_template_part('library/contents/social-share'); } ?>
 			</article><!-- #post -->
@@ -31,5 +42,12 @@ get_header(); ?>
 	</div><!-- #main -->
 	<?php get_sidebar();?>
 <?php do_action( 'sp_end_content_wrap_html' ); ?>
-	
+
+<div id="booking-form" class="mfp-hide white-popup-block">
+    <?php $page = get_post(ot_get_option('reservation-page')); ?>
+    <h3><?php echo $page->post_title; ?></h3>
+    <?php $content = apply_filters('the_content', $page->post_content); 
+    echo $content; ?>
+</div>
+
 <?php get_footer(); ?>
