@@ -226,12 +226,53 @@ $page_template_contact = array(
 	'priority'    => 'high',
 	'fields'      => array(
 		array(
+			'label'		=> 'Address',
+			'id'		=> $prefix . 'address',
+			'type'		=> 'text',
+			'desc'		=> 'e.g: # A27-A28 , La Seine , Koh Pich, Phnom Penh, Cambodia',
+			'std'		=> ''
+		),
+		array(
+			'label'		=> 'Tel',
+			'id'		=> $prefix . 'tel',
+			'type'		=> 'text',
+			'desc'		=> 'e.g: +855 23 982 656',
+			'std'		=> ''
+		),
+		array(
+			'label'		=> 'Phone',
+			'id'		=> $prefix . 'phone',
+			'type'		=> 'text',
+			'desc'		=> 'e.g: +855 17 666 916',
+			'std'		=> ''
+		),
+		array(
+			'label'		=> 'Fax',
+			'id'		=> $prefix . 'fax',
+			'type'		=> 'text',
+			'desc'		=> 'e.g: +855 23 982 655',
+			'std'		=> ''
+		),
+		array(
+			'label'		=> 'Email',
+			'id'		=> $prefix . 'email',
+			'type'		=> 'text',
+			'desc'		=> 'e.g: info@shalyboutiquehotel.com',
+			'std'		=> ''
+		),
+		array(
+			'label'		=> 'Agoda booking link page',
+			'id'		=> $prefix . 'agoda',
+			'type'		=> 'text',
+			'desc'		=> '',
+			'std'		=> ''
+		),
+		array(
 			'label'		=> 'Latitude and Longitude of a Point',
 			'id'		=> $prefix . 'contact_map',
 			'type'		=> 'text',
 			'desc'		=> 'You can get latitude and longitude coordinates of a point from <a href="http://itouchmap.com/latlong.html" target="_blank">Itouchmap</a>',
 			'std'		=> '11.555509,104.926082'
-
 		)
 	)
 );

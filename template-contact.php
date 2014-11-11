@@ -7,9 +7,11 @@ get_header(); ?>
 
     <?php 
         //Past meta value into var
-        $map_locations = get_post_meta($post->ID, 'sp_contact_map', true); //'11.549118,104.937882'; 
+        $contact_meta = get_post_meta( $post->ID );
+        $map_locations = $contact_meta['sp_contact_map'][0]; //'11.549118,104.937882'; 
         $map_loc = explode(',', $map_locations);
-        $latitude_center = $map_loc[0] + 0.010;// Variable to align the marker on the right side of the map, instead of the center    
+        $latitude_center = $map_loc[0] + 0.010;
+        $longtitude_center = $map_loc[1] - 0.060;// Variable to align the marker on the right side of the map, instead of the center    
     ?>
 
     <div id="map-container">
@@ -46,21 +48,21 @@ get_header(); ?>
                     ];
 
                     var contentString = '<div id="map-info">'+
-                                        '<h3>Shaly Boutique Hotel</h3>'+
-                                        '<span># A27-A28 , La Seine , Koh Pich, Pnom Penh, Cambodia</span>'+
-                                        '<span>Tel: +855 23 982 656</span>'+
-                                        '<span>HP: +855 17 666 916</span>'+
-                                        '<span>Fax: +855 23 982 655</span>'+
-                                        '<span>E-mail: <a href="mailto:info@shalyboutiquehotel.com"> info@shalyboutiquehotel.com</a></span>'+
+                                        '<h3><?php echo esc_attr( get_bloginfo("name") ); ?></h3>'+
+                                        '<span><?php echo $contact_meta["sp_address"][0]; ?></span>'+
+                                        '<span>Tel: <?php echo $contact_meta["sp_tel"][0]; ?></span>'+
+                                        '<span>HP: <?php echo $contact_meta["sp_phone"][0]; ?></span>'+
+                                        '<span>Fax: <?php echo $contact_meta["sp_fax"][0]; ?></span>'+
+                                        '<span>E-mail: <a href="mailto:<?php echo $contact_meta["sp_email"][0]; ?>"> <?php echo $contact_meta["sp_email"][0]; ?></a></span>'+
                                         '<div class="directions-container">'+
                                         '<a href="https://maps.google.com/?saddr=&amp;daddr=<?php echo $map_locations; ?>" class="button" target="_blank"><span class="icon-location"></span>Get Directions</a>'+
-                                        '<a href="#booking-form" class="button last" id="book"><span class="icon-calendar"></span>Make reservation</a>'+
+                                        '<a href="<?php echo $contact_meta["sp_agoda"][0]; ?>" class="button last" id="book"><span class="icon-calendar"></span>Make reservation</a>'+
                                         '</div>'+
                                         '</div>';
                     var infowindow = new google.maps.InfoWindow({content: contentString }); 
                     
                     var mapOptions = {  
-                        center: new google.maps.LatLng(<?php echo $latitude_center . ',' . $map_loc[1]; ?>),
+                        center: new google.maps.LatLng(<?php echo $latitude_center . ',' . $longtitude_center; ?>),
                         zoomControlOptions: {
                             style: google.maps.ZoomControlStyle.LARGE,
                             position: google.maps.ControlPosition.RIGHT_CENTER

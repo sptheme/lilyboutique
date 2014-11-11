@@ -762,7 +762,7 @@ textarea {
   padding: 0.7em 1em;
   color:#ACACAC;
   display: block; 
-  max-width: 100%; 
+  width: 100%; 
   outline: none; 
 } 
 
