@@ -261,13 +261,6 @@ $page_template_contact = array(
 			'std'		=> ''
 		),
 		array(
-			'label'		=> 'Agoda booking link page',
-			'id'		=> $prefix . 'agoda',
-			'type'		=> 'text',
-			'desc'		=> '',
-			'std'		=> ''
-		),
-		array(
 			'label'		=> 'Latitude and Longitude of a Point',
 			'id'		=> $prefix . 'contact_map',
 			'type'		=> 'text',

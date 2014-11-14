@@ -56,7 +56,7 @@ get_header(); ?>
                                         '<span>E-mail: <a href="mailto:<?php echo $contact_meta["sp_email"][0]; ?>"> <?php echo $contact_meta["sp_email"][0]; ?></a></span>'+
                                         '<div class="directions-container">'+
                                         '<a href="https://maps.google.com/?saddr=&amp;daddr=<?php echo $map_locations; ?>" class="button" target="_blank"><span class="icon-location"></span>Get Directions</a>'+
-                                        '<a href="<?php echo $contact_meta["sp_agoda"][0]; ?>" class="button last" id="book" target="_blank"><span class="icon-calendar"></span>Make reservation</a>'+
+                                        '<a href="<?php echo ot_get_option("agoda"); ?>" class="button last" id="book" target="_blank"><span class="icon-calendar"></span>Make reservation</a>'+
                                         '</div>'+
                                         '</div>';
                     var infowindow = new google.maps.InfoWindow({content: contentString }); 

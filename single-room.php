@@ -21,16 +21,19 @@ get_header(); ?>
 				</header>
 				<div class="entry-content">
 					<?php the_content(); ?>
-					<a href="#booking-form" class="button" id="book"><span class="icon-calendar"></span>Make reservation</a>
+					<?php if(ot_get_option('agoda')) : ?>
+						<a href="<?php echo ot_get_option('agoda'); ?>" class="button" target="_blank"><span class="icon-calendar"></span>Make reservation</a>
+					<?php endif; ?>
+					<!-- <a href="#booking-form" class="button" id="book"><span class="icon-calendar"></span>Make reservation</a> -->
 					<script type="text/javascript">
-						jQuery(document).ready(function(){
+						/*jQuery(document).ready(function(){
 							$('#book').magnificPopup({
 		                            type: 'inline',
 		                            preloader: false,
 		                            removalDelay: 500,
 		                            mainClass: 'mfp-fade'
 		                        });
-						});
+						});*/
 					</script>
 				</div><!-- .entry-content -->
 				<?php if ( ot_get_option('social_share') != 'off' ) { get_template_part('library/contents/social-share'); } ?>
