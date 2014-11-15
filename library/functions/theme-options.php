@@ -211,7 +211,15 @@ function custom_theme_options() {
 		array(
 			'id'		=> 'reservation-page',
 			'label'		=> 'Select reservation page',
-			'desc'		=> 'Select page that have reservation form',
+			'desc'		=> 'Select page that have reservation shortcode',
+			'std'		=> '',
+			'type'		=> 'page-select',
+			'section'	=> 'contact'
+		),
+		array(
+			'id'		=> 'inquiry-page',
+			'label'		=> 'Select Inquiry page',
+			'desc'		=> 'Select page that have Inquiry shortcode',
 			'std'		=> '',
 			'type'		=> 'page-select',
 			'section'	=> 'contact'

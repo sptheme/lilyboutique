@@ -54,9 +54,11 @@ get_header(); ?>
                                         '<span>HP: <?php echo $contact_meta["sp_phone"][0]; ?></span>'+
                                         '<span>Fax: <?php echo $contact_meta["sp_fax"][0]; ?></span>'+
                                         '<span>E-mail: <a href="mailto:<?php echo $contact_meta["sp_email"][0]; ?>"> <?php echo $contact_meta["sp_email"][0]; ?></a></span>'+
+                                        '<span><a href="https://maps.google.com/?saddr=&amp;daddr=<?php echo $map_locations; ?>" target="_blank">Get Directions</a></span>'+
                                         '<div class="directions-container">'+
-                                        '<a href="https://maps.google.com/?saddr=&amp;daddr=<?php echo $map_locations; ?>" class="button" target="_blank"><span class="icon-location"></span>Get Directions</a>'+
-                                        '<a href="<?php echo ot_get_option("agoda"); ?>" class="button last" id="book" target="_blank"><span class="icon-calendar"></span>Make reservation</a>'+
+                                        //'<a href="https://maps.google.com/?saddr=&amp;daddr=<?php echo $map_locations; ?>" class="button" target="_blank"><span class="icon-location"></span>Get Directions</a>'+
+                                        '<a href="#inquiry-form" class="button" id="inquiry"><span class="icon-mail"></span>Need more info?</a>'+
+                                        '<a href="<?php echo ot_get_option("agoda"); ?>" class="button last" target="_blank"><span class="icon-calendar"></span>Make reservation</a>'+
                                         '</div>'+
                                         '</div>';
                     var infowindow = new google.maps.InfoWindow({content: contentString }); 
@@ -99,19 +101,21 @@ get_header(); ?>
                         infowindow.open(map,marker);
                     });
                    
-                    /*google.maps.event.addListener(infowindow, 'domready', function() {
-                        $('#book').magnificPopup({
+                    google.maps.event.addListener(infowindow, 'domready', function() {
+                        $('#inquiry').magnificPopup({
                             type: 'inline',
                             preloader: false,
                             removalDelay: 500,
                             mainClass: 'mfp-fade'
                         });
-                    });*/
+                    });
                     
                 });
             </script>
 
             <div id="single-map-canvas" class="google-map-img-reset" style="width:100%; height: 100%;"></div>
+
+            
         </div> <!-- .map-inner -->
     </div> <!-- #map-container -->
     <div id="booking-form" class="mfp-hide white-popup-block">
@@ -120,5 +124,11 @@ get_header(); ?>
         <?php $content = apply_filters('the_content', $page->post_content); 
         echo $content; ?>
     </div>
+    <div id="inquiry-form" class="mfp-hide white-popup-block">
+        <?php $page = get_post(ot_get_option('inquiry-page')); ?>
+        <h4><?php echo $page->post_title; ?></h4>
+        <?php $content = apply_filters('the_content', $page->post_content); 
+        echo $content; ?>
+    </div> <!-- #inquiry-form -->
 	
 <?php get_footer(); ?>

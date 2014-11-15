@@ -297,8 +297,8 @@ ul.primary-nav .nav-contact > a:hover { background-position: 0 -264px; }
   height: inherit;
 }
 #map-info{
-  width: 350px;
-  padding: 10px;
+  width: 320px;
+  padding: 10px 0;
 }
 
 #map-info h3 {
@@ -307,6 +307,7 @@ ul.primary-nav .nav-contact > a:hover { background-position: 0 -264px; }
 
 #map-info span{ display: block; }
 #map-info span.icon-location,
+#map-info span.icon-mail,
 #map-info span.icon-calendar { display: inline-block; }
 
 #map-info .directions-container{
@@ -314,13 +315,13 @@ ul.primary-nav .nav-contact > a:hover { background-position: 0 -264px; }
   padding-top: 10px;
   margin-top: 10px;
 }
-#map-info .directions-container .button { margin-right: 20px; padding: 3px 15px; }
-
+#map-info .directions-container .button { margin-right: 15px; padding: 3px 10px; }
+#map-info .directions-container a.button:hover span:before{ color: #ffffff; }
 
 /* Reset Google map image style */
-.gm-style img { max-width: none; }
+.google-map-img-reset img { max-width: none; }
 
-.gm-style label { width: auto; display:inline; } 
+.google-map-img-reset label { width: auto; display:inline; } 
 
 /* ---------------------------------------------------------------
  * UI Elements

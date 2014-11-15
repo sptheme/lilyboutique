@@ -109,10 +109,28 @@
       "src": "entypo"
     },
     {
+      "uid": "ccd52a22af21fbaa98a9c85fb50fca6b",
+      "css": "info",
+      "code": 59421,
+      "src": "iconic"
+    },
+    {
       "uid": "id8wp0cygl9trzbhlbd9o0fygiesi629",
       "css": "search-1",
       "code": 59404,
       "src": "modernpics"
+    },
+    {
+      "uid": "ae3so8q0b0n2h8esv9flua2nmwswa8fd",
+      "css": "mail",
+      "code": 59419,
+      "src": "modernpics"
+    },
+    {
+      "uid": "15ba51cbb4d05e6fb88f03a31a7c711c",
+      "css": "info-circled-alt",
+      "code": 59420,
+      "src": "mfglabs"
     },
     {
       "uid": "55e2ff85b1c459c383f46da6e96014b0",
