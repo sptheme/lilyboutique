@@ -482,7 +482,7 @@ if ( ! function_exists( 'sp_get_cover_album' ) ) {
 if ( ! function_exists( 'sp_sliders' ) ) {
 	function sp_sliders( $slide_sytle = 1, $slide_id, $size = 'thumbnail' ){
 		
-		$sliders = explode( ',', get_post_meta( $slide_id, 'sp_gallery', true ) );
+		$sliders = explode( ',', get_post_meta( $slide_id, 'sp_home_slide', true ) );
 		$out = '';
 		if ( $slide_sytle == 1 ) {
 			$out .='<script type="text/javascript">

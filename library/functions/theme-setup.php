@@ -151,7 +151,7 @@ if ( !function_exists('sp_print_custom_css_script') ){
 
 	<?php
 	if ( !is_page_template( 'template-contact.php' ) ) {
-		$gallery = explode( ',', get_post_meta( get_the_ID(), 'sp_gallery', true ) );
+		$gallery = explode( ',', get_post_meta( get_the_ID(), 'sp_home_slide', true ) );
 		$slide_background = '';
 		if ( $gallery[0] != '' ) :
 			foreach ( $gallery as $image ) :
