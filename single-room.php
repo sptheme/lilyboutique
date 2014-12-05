@@ -16,7 +16,7 @@ get_header(); ?>
 				<header class="entry-header">
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 					<div class="room-rate">
-						<span>USD</span> <?php echo get_post_meta( $post->ID, 'sp_room_rate', true ); ?><span>/day</span>
+						<span>USD</span> <?php echo get_post_meta( $post->ID, 'sp_room_rate', true ); ?><span>/Night</span>
 					</div>
 				</header>
 				<div class="entry-content">
